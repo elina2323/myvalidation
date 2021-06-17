@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h2 align="center" class="bg-dark text-white">Sign up form</h2>
+<form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+    <table class="table">
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}" /></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+        <tr>
+            <td>Experience:</td>
+            <td><input type="text" th:field="*{experience}" /></td>
+            <td th:if="${#fields.hasErrors('experience')}" th:errors="*{experience}">Experience Error</td>
+        </tr>
+        <tr>
+            <td>IP address:</td>
+            <td><input type="text" th:field="*{ipAddress}" /></td>
+            <td th:if="${#fields.hasErrors('ipAddress')}" th:errors="*{ipAddress}">Experience Error</td>
+        </tr>
+        <tr>
+            <td>Career Start:</td>
+            <td><input type="text" th:field="*{careerStart}" /></td>
+            <td th:if="${#fields.hasErrors('careerStart')}" th:errors="*{careerStart}">Experience Error</td>
+        </tr>
+        <tr>
+            <td>End Contract:</td>
+            <td><input type="text" th:field="*{endContract}" /></td>
+            <td th:if="${#fields.hasErrors('endContract')}" th:errors="*{endContract}">Experience Error</td>
+        </tr>
+        <tr>
+            <td>Birthday:</td>
+            <td><input type="text" th:field="*{birthday}" /></td>
+            <td th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">Experience Error</td>
+        </tr>
+
+        <tr>
+            <td>Are you agree with Data Processing</td>
+            <td><input type="checkbox" th:field="*{confirmation}"></td>
+            <td  class = "error" th:if="${#fields.hasErrors('confirmation')}" th:errors="*{confirmation}">confirmation Error</td>
+        </tr>
+
+        <tr>
+            <td>Choose languages which you know</td>
+        </tr>
+        <tr>
+            <td class = "error" th:if="${#fields.hasErrors('arrayList')}" th:errors="*{arrayList}">arrayList Error</td>
+        </tr>
+    </table>
+
+    <ol>
+        <li>Spanish<input type="checkbox" th:field="*{arrayList}" th:value="${arrayList}"></li>
+        <li>English<input type="checkbox" th:field="*{arrayList}" th:value="${arrayList}"></li>
+        <li>Kyrgyz<input type="checkbox" th:field="*{arrayList}" th:value="${arrayList}"></li>
+        <li>Japanese<input type="checkbox" th:field="*{arrayList}" th:value="${arrayList}"></li>
+        <li>Russian<input type="checkbox" th:field="*{arrayList}" th:value="${arrayList}"></li>
+    </ol>
+    <tr>
+        <button type="submit" class="btn btn-secondary col-12" value="Form">Submit</button>
+    </tr>
+</form>
+</body>
+</html>
